@@ -1,50 +1,149 @@
-<!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>我的个人主页</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
 
-  <title>Peiqi Wang</title>
-  
-  <meta name="author" content="Peiqi Wang">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-	</head>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
 
+    .top-section {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .left-2 {
+      flex: 2;
+      text-align: center;
+    }
+
+    .left-2 img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .left-2 h1 {
+      font-size: 28px;
+      margin: 10px 0;
+    }
+
+    .left-2 p {
+      color: #666;
+    }
+
+    .right-3 {
+      flex: 3;
+    }
+
+    .right-3 a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .right-3 a:hover {
+      text-decoration: underline;
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
+    }
+
+    .research-section {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .research-item {
+      flex: 1 1 45%;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+
+    .research-item img, .research-item video {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .top-section, .research-section {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
 <body>
-<header>
-  <section class="profileHeader">
-    <h1>Peiqi Wang (王霈绮）&nbsp;</h1>
-     <hr>
-    <!--p>A fourth-year undergraduate student at <a href="https://www.hitsz.edu.cn/index.html">Harbin Institute of Technology, Shenzhen (HITSZ)</a>, studying the major of Mechanical Design, Manufacturing and Automation, in the<a href="http://smea.hitsz.edu.cn/"> School of Mechanical Engineering and Automation</a>.</p-->
-    <!--p>Design/Dissertation for Graduation: Research on multi-target detection and tracking algorithms in congested scene.&nbsp;Adviser: <a href="http://faculty.hitsz.edu.cn/renweihong">Weihong Ren</a>&nbsp;</p-->
-	<p><span>Email :</span> &nbsp;<a href="mailto:190310315@stu.hit.edu.cn">@HITSZ&nbsp;</a>&amp;&nbsp; <a href="mailto:Wangpeiqi00@outlook.com">@outlook</a></p>
-  </section>
-  <!-- Links to Social network accounts -->
-</header>
-	
-  <section class="section2">
-    <article class="section2Content">
-      <h1 class="sectionContentTitle"> Dart launcher&nbsp;</h1>
-	<div class="section1Content">
-        <img src="./img/Dart_Launcher.png" alt="sample" width="500">
-	<video src="./img/Dart_Launcher.mp4" controls="controls" muted="true" width="500"> </video> </div>
-      <h1 class="sectionContentTitle"> Dart&nbsp; </h1>
-	<div class="section1Content">
-        <img src="./img/Dart.png" alt="sample" height="275"> 
-        <img src="./img/Dart_2.png" alt="sample" height="275">
-	<video src="./img/Dart.mp4" controls="controls" muted="true" width="500"> </video> </div> 
-      <h1 class="sectionContentTitle"> Participated in the development of a multi-rotor UAV&nbsp; </h1>
-	<div class="section1Content">
-   	<video src="./img/21UAV.mp4" controls="controls" muted="true" width="500"> </video> </div> 
-     </article>
-    <article class="section2Content">
-      <h1 class="sectionContentTitle"> Aviation Model Project&nbsp;</h2>
-      	<div class="section1Content">
-        <img src="./img/GU.png" alt="sample" width="500"> </div>
-    </article>
-  </section>
 
-</section>
-<footer>
-  <hr>
-  <p class="footerDisclaimer">2023.3 - <span>All Rights Reserved</span></p>
-</footer>
+  <div class="container">
+
+    <!-- 顶部部分：左右2:3 -->
+    <div class="top-section">
+      <div class="left-2">
+        <img src="your_photo.jpg" alt="个人照片">
+        <h1>张三 Zhang San</h1>
+        <p>博士研究生，XXX大学</p>
+        <p>Email: zhangsan@example.com</p>
+      </div>
+
+      <div class="right-3">
+        <h2 class="section-title">关于我</h2>
+        <p>
+          我目前是XXX大学XXX实验室的一名博士生，研究方向包括模块化机器人、自重构结构与磁性驱动系统。
+          我所在的实验室是
+          <a href="https://examplelab.edu" target="_blank">XXX智能机器人实验室</a>。
+          我的研究目标是推动机器人系统在复杂环境中的自适应性和可重构能力。
+        </p>
+      </div>
+    </div>
+
+    <!-- 研究成果部分 -->
+    <h2 class="section-title">研究成果</h2>
+    <div class="research-section">
+
+      <div class="research-item">
+        <h3>SnailBot 自重构机器人</h3>
+        <p>一种采用磁轨驱动系统的模块化机器人，可在球面表面自由移动并进行自重构操作。</p>
+        <img src="snailbot_image.jpg" alt="SnailBot 图片">
+      </div>
+
+      <div class="research-item">
+        <h3>球面运动演示视频</h3>
+        <p>以下视频展示了SnailBot在球面环境中的运动与连接效果。</p>
+        <video controls>
+          <source src="demo_video.mp4" type="video/mp4">
+          您的浏览器不支持 video 标签。
+        </video>
+      </div>
+
+      <div class="research-item">
+        <h3>论文发表</h3>
+        <p>“自由形态连接模块化自重构蜗牛机器人结构设计与优化研究”已投稿至ICRA 2025。</p>
+        <p><a href="https://arxiv.org/abs/1234.56789" target="_blank">点击查看预印本</a></p>
+      </div>
+
+    </div>
+  </div>
+
 </body>
 </html>
