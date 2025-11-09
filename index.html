@@ -1,196 +1,243 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Peiqi WANG</title>
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-<!--   <link rel="shortcut icon" href="img/shinchen.ico" type="image/x-icon"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peggy Wang</title>
+  <link rel="icon" href="img/favicon.ico">
   <style>
+    /* === 全局设置 === */
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      line-height: 1.6;
+      font-family: "Helvetica Neue", Arial, sans-serif;
       background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    .top-section {
-      display: flex;
-      gap: 40px;
-      margin-bottom: 60px;
-    }
-
-    .left-2 {
-      flex: 2;
-      text-align: center;
-    }
-
-    .left-2 img {
-      max-width: 50%;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-
-    .left-2 h1 {
-      font-size: 28px;
-      margin: 10px 0;
-    }
-
-    .left-2 p {
-      color: #666;
-    }
-
-    .right-3 {
-      flex: 3;
-    }
-
-    .right-3 a {
-      color: #0066cc;
+    a {
+      color: #007f5f;
       text-decoration: none;
     }
-
-    .right-3 a:hover {
+    a:hover {
       text-decoration: underline;
     }
 
-    .section-title {
-      font-size: 24px;
-      margin-bottom: 20px;
-      color: #333;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 5px;
+    h2 {
+      border-bottom: 2px solid #007f5f;
+      padding-bottom: 6px;
+      margin-top: 40px;
     }
 
-    .research-section {
+    /* === 页面布局 === */
+    .container {
       display: flex;
-      flex-direction: column; /* 垂直排列每个成果块 */
-      gap: 40px;              /* 成果块之间的竖向间距 */
+      min-height: 100vh;
     }
-    
+
+    /* 左侧信息栏 */
+    .sidebar {
+      width: 30%;
+      max-width: 320px;
+      background-color: #e8f5e9;
+      padding: 40px 25px;
+      box-sizing: border-box;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      overflow-y: auto;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.05);
+    }
+
+    .sidebar img {
+      width: 100%;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .sidebar h1 {
+      margin: 0;
+      font-size: 1.6em;
+      color: #004f3d;
+    }
+
+    .sidebar p {
+      margin-top: 10px;
+      font-size: 0.95em;
+    }
+
+    /* 右侧内容区 */
+    .content {
+      margin-left: 30%;
+      padding: 50px 60px;
+      box-sizing: border-box;
+      flex: 1;
+    }
+
+    /* === About Section === */
+    .about p {
+      max-width: 700px;
+    }
+
+    /* === Research Section === */
     .research-item {
       background-color: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
       padding: 20px;
-      width: 100%;            /* 每个成果占整行 */
+      margin: 25px 0;
     }
-    
+
     .research-item img,
     .research-item video {
       display: block;
-      max-width: 100%;
+      width: 100%;
+      height: auto;
       border-radius: 8px;
       margin-top: 10px;
     }
 
+    /* === Publications Section === */
+    .pub-section {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
 
-    @media (max-width: 768px) {
-      .top-section, .research-section {
-        flex-direction: column;
+    .pub-item {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      padding: 15px 20px;
+      line-height: 1.6;
+    }
+
+    .pub-item strong {
+      font-size: 1.05em;
+      color: #222;
+    }
+
+    .pub-item em {
+      color: #555;
+      font-style: italic;
+    }
+
+    .pub-links {
+      font-size: 0.9em;
+      color: #666;
+    }
+
+    .pub-links a {
+      color: #007f5f;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .pub-links a:hover {
+      color: #004f3d;
+      text-decoration: underline;
+    }
+
+    /* 页脚 */
+    footer {
+      margin-top: 50px;
+      padding-top: 10px;
+      border-top: 1px solid #ccc;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    /* === 响应式 === */
+    @media (max-width: 800px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        max-width: none;
+        height: auto;
+        box-shadow: none;
+      }
+      .content {
+        margin-left: 0;
+        padding: 20px;
       }
     }
   </style>
 </head>
-<body>
 
+<body>
   <div class="container">
 
-    <!-- 顶部部分：左右2:3 -->
-    <div class="top-section">
-      <div class="left-2">
-        <! img src="peggy-hk.jpg" alt="peggy-hk">
-        <img src="./img/peggy-hk.jpg">
-        <h1>Peiqi WANG</h1>
-<!--         <p>Master student of The Chinese University of Hong Kong, Shenzhen</p> -->
-        <p>Email: wangpeiqi00@gmail.com</p>
-      </div>
+    <!-- 左侧信息栏 -->
+    <div class="sidebar">
+      <img src="img/peggy-hk.jpg" alt="Peggy Wang">
+      <h1>Peggy Wang</h1>
+      <p>Master’s Student at <strong>BB University</strong><br>
+         Department of <strong>AAA</strong><br>
+         Research in <strong>Modular Self-Reconfiguring Robots</strong><br>
+         <a href="https://bbb-lab.example.com" target="_blank">BBB Laboratory</a><br><br>
+         <em>Supervisor:</em> SSS
+      </p>
+      <p>Email: <a href="mailto:peggy@example.com">peggy@example.com</a></p>
+      <p><a href="https://github.com/yourgithub" target="_blank">GitHub</a> | 
+         <a href="https://scholar.google.com" target="_blank">Google Scholar</a></p>
+    </div>
 
-      <div class="right-3">
-        <h2 class="section-title">About</h2>
+    <!-- 右侧内容 -->
+    <div class="content">
+
+      <!-- About -->
+      <section id="about" class="about">
+        <h2>About Me</h2>
         <p>
-          I am currently interning in Department MakerWorld at BamBu Lab as a Mechanical Design Intern.
-          I am also a master's student at <strong>The Chinese University of Hong Kong,Shenzhen</strong>, 
-          majoring in <strong>Computer and Information Engineering</strong>.
-          I am conducting research on modular self-reconfigurable robots in the 
-          <a href="https://freeformrobotics.org/" target="_blank">Freeform Robotics Lab</a> 
-          under the supervision of Professor 
-          <a href="https://www.freeformrobotics.org/tllam/" target="_blank">Tin Lun LAM</a>.
-         I received my bachelor's degree in <strong>Mechanical Design, Manufacturing and Automation</strong> 
-          from <strong>Harbin Institute of Technology, Shenzhen</strong>.
+          I am currently interning in Department B at Alab as a <strong>Mechanical Design Intern</strong>.
+          At the same time, I am also a master’s student at <strong>C University</strong>.
         </p>
-      </div>
+      </section>
+
+      <!-- Research -->
+      <section id="research">
+        <h2>Research</h2>
+        <div class="research-item">
+          <h3>SnailBot</h3>
+          <p>SnailBot is a bionic snail-inspired robot. This version of SnailBot adopts an adaptive spherical gripper structure to enhance inter-module connections and employs a rigid magnetic track as the locomotion mechanism, which also provides a fundamental guarantee for reliable connections between SnailBot modules.</p>
+          <img src="img/snailbot.png" alt="SnailBot">
+          <img src="img/Snailbot_gripper.png" alt="Adaptive Gripper">
+          <img src="img/Snailbot_boom.png" alt="SnailBot Hardware Design">
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section id="publications">
+        <h2>Publications</h2>
+        <div class="pub-section">
+          <div class="pub-item">
+            <p><strong>SnailBot: Freeform Connection Modular Self-Reconfiguring Robot Design</strong><br>
+              <em>International Conference on Robotics and Automation (ICRA), 2024.</em><br>
+              <span class="pub-links">
+                [<a href="https://scholar.google.com" target="_blank">cite</a>] 
+                [<a href="pdf/SnailBot_ICRA2024.pdf" target="_blank">pdf</a>]
+              </span>
+            </p>
+          </div>
+
+          <div class="pub-item">
+            <p><strong>Adaptive Spherical Gripper for Freeform Modular Connection</strong><br>
+              <em>IEEE Robotics and Biomimetics (ROBIO), 2023.</em><br>
+              <span class="pub-links">
+                [<a href="https://ieeexplore.ieee.org" target="_blank">cite</a>] 
+                [<a href="pdf/Gripper_ROBIO2023.pdf" target="_blank">pdf</a>]
+              </span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        © 2025 Peggy Wang | Last updated: November 2025
+      </footer>
     </div>
-
-    <!-- 文章 -->
-    <h2 class="section-title">Publications</h2>
-    <div class="Pubs-section">
-
-      <div class="Pubs-item">
-          <p>Peiqi Wang, Guanqi Liang, Da Zhao, Tin Lun Lam, 
-            “<em>Enhancing Connection Strength in Freeform Modular Reconfigurable Robots through Holey Sphere and Gripper Mechanisms</em>,” 
-            in 2025 IEEE International Conference on Robotics and Automation (ICRA). IEEE, 2025, pp. 7923-7929.</p>
-        <a href="https://doi.org/10.1109/ICRA55743.2025.11128097" target="_blank">paper</a>
-      </div>
-
-
-    </div>
-
-    
-    <!-- 研究成果部分 -->
-    <h2 class="section-title">Research</h2>
-    <div class="research-section">
-
-      <div class="research-item">
-        <h3>SnailBot</h3>
-        <p>SnailBot is a bionic snail-inspired robot.
-           This version of SnailBot adopts an adaptive spherical gripper structure to enhance inter-module connections and employs a rigid magnetic track as the locomotion mechanism, 
-          which also provides a fundamental guarantee for reliable connections between SnailBot modules.</p>
-        <img src="./img/snailbot.png" alt="SnailBot">
-        <img src="./img/SnailBot_gripper.png" alt="An adaptive gripper capable of achieving freeform connections on a spherical surface.">
-        <img src="./img/SnailBot_boom.png" alt="SnailBot hardware design.">
-      </div>
-
-      <div class="research-item">
-        <h3>球面运动演示视频</h3>
-        <p>以下视频展示了SnailBot在球面环境中的运动与连接效果。</p>
-        <video controls>
-          <source src="demo_video.mp4" type="video/mp4">
-          您的浏览器不支持 video 标签。
-        </video>
-      </div>
-
-
-    </div>
-    <!-- 其他项目 -->
-    <h2 class="section-title">Project</h2>
-    <div class="Project-section">
-
-      <div class="Project-item">
-        <h3>SnailBot</h3>
-        <p>一种采用磁轨驱动系统的模块化机器人，可在球面表面自由移动并进行自重构操作。</p>
-        <img src="snailbot_image.jpg" alt="SnailBot 图片">
-      </div>
-
-      <div class="Project-item">
-        <h3>球面运动演示视频</h3>
-        <p>以下视频展示了SnailBot在球面环境中的运动与连接效果。</p>
-        <video controls>
-          <source src="demo_video.mp4" type="video/mp4">
-          您的浏览器不支持 video 标签。
-        </video>
-      </div>
-
-
-    </div>
-
-    
   </div>
-
 </body>
 </html>
