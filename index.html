@@ -6,15 +6,16 @@
   <title>Peggy Wang</title>
   <link rel="icon" href="img/favicon.ico">
   <style>
-    /* === 全局设置 === */
+   /* === 全局设置 === */
     body {
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
       background-color: #f9f9f9;
       color: #333;
-      line-height: 1.6;
+      line-height: 1.75;
     }
-
+    
+    /* 链接样式 */
     a {
       color: #007f5f;
       text-decoration: none;
@@ -22,64 +23,77 @@
     a:hover {
       text-decoration: underline;
     }
-
+    
+    /* 标题样式 */
     h2 {
       border-bottom: 2px solid #007f5f;
       padding-bottom: 6px;
       margin-top: 40px;
+      max-width: 800px; /* 与文字对齐 */
     }
-
+    
     /* === 页面布局 === */
     .container {
       display: flex;
       min-height: 100vh;
+      max-width: 1400px;         /* 控制整体页面宽度 */
+      margin: 0 auto;            /* 居中显示 */
+      box-sizing: border-box;
     }
-
+    
     /* 左侧信息栏 */
     .sidebar {
-      width: 30%;
+      flex: 0 0 27%;             /* 左右比例：27% : 73% */
+      min-width: 260px;
       max-width: 320px;
       background-color: #e8f5e9;
       padding: 40px 25px;
       box-sizing: border-box;
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      height: 100%;
-      overflow-y: auto;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;       /* 水平居中 */
+      justify-content: flex-start;
+      text-align: center;
       box-shadow: 2px 0 8px rgba(0,0,0,0.05);
     }
-
+    
     .sidebar img {
       width: 70%;
+      max-width: 200px;
       border-radius: 50%;
       margin-bottom: 20px;
     }
-
+    
     .sidebar h1 {
       margin: 0;
       font-size: 1.6em;
       color: #004f3d;
     }
-
+    
     .sidebar p {
       margin-top: 10px;
       font-size: 0.95em;
     }
-
+    
     /* 右侧内容区 */
     .content {
-      margin-left: 30%;
-      padding: 50px 60px;
-      box-sizing: border-box;
       flex: 1;
+      padding: 50px 80px;
+      box-sizing: border-box;
     }
-
+    
     /* === About Section === */
     .about p {
-      max-width: 700px;
+      max-width: 800px;          /* 控制文字宽度 */
+      text-align: justify;       /* 两端对齐，使换行更自然 */
+      margin: 0 auto;            /* 自动居中 */
+      font-size: 1.05em;
+      line-height: 1.8;
     }
-
+    
     /* === Research Section === */
     .research-item {
       background-color: #fff;
@@ -88,7 +102,7 @@
       padding: 20px;
       margin: 25px 0;
     }
-
+    
     .research-item img,
     .research-item video {
       display: block;
@@ -97,14 +111,14 @@
       border-radius: 8px;
       margin-top: 10px;
     }
-
+    
     /* === Publications Section === */
     .pub-section {
       display: flex;
       flex-direction: column;
       gap: 25px;
     }
-
+    
     .pub-item {
       background-color: #fff;
       border-radius: 12px;
@@ -112,33 +126,33 @@
       padding: 15px 20px;
       line-height: 1.6;
     }
-
+    
     .pub-item strong {
       font-size: 1.05em;
       color: #222;
     }
-
+    
     .pub-item em {
       color: #555;
       font-style: italic;
     }
-
+    
     .pub-links {
       font-size: 0.9em;
       color: #666;
     }
-
+    
     .pub-links a {
       color: #007f5f;
       text-decoration: none;
       transition: color 0.2s;
     }
-
+    
     .pub-links a:hover {
       color: #004f3d;
       text-decoration: underline;
     }
-
+    
     /* 页脚 */
     footer {
       margin-top: 50px;
@@ -146,20 +160,44 @@
       border-top: 1px solid #ccc;
       font-size: 0.9em;
       color: #777;
+      max-width: 800px;
     }
-
-    /* === 响应式 === */
-    @media (max-width: 800px) {
+    
+    /* === 响应式：小屏幕优化 === */
+    @media (max-width: 1100px) {
+      .container {
+        flex-direction: column;
+      }
+    
       .sidebar {
         position: relative;
         width: 100%;
-        max-width: none;
         height: auto;
+        max-width: none;
         box-shadow: none;
+        padding: 30px 20px;
       }
+    
       .content {
         margin-left: 0;
-        padding: 20px;
+        padding: 30px 20px;
+      }
+    
+      .about p, h2, footer {
+        max-width: 100%;
+        text-align: left;
+      }
+    }
+    
+    /* === 字体随页面自适应 === */
+    @media (max-width: 800px) {
+      body {
+        font-size: 15px;
+      }
+    }
+    @media (min-width: 1400px) {
+      body {
+        font-size: 17px;
       }
     }
   </style>
