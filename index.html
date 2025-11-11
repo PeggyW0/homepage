@@ -26,24 +26,27 @@
     h2 {
       border-bottom: 2px solid #007f5f;
       padding-bottom: 6px;
-      margin-top: 40px;
+      margin-top: 50px;
       margin-bottom: 20px;
-      width: 90%;
-      max-width: 720px;
+      width: 100%;
+      max-width: 750px;
     }
 
     /* === 页面布局 === */
     .container {
       display: flex;
       min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #f5f7f6;
     }
 
     /* 左侧信息栏 */
     .sidebar {
-      width: 26%;
-      max-width: 280px;
+      width: 25%;
+      max-width: 260px;
       background-color: #e8f5e9;
-      padding: 50px 30px;
+      padding: 50px 25px;
       box-sizing: border-box;
       position: fixed;
       top: 0;
@@ -55,14 +58,14 @@
     }
 
     .sidebar img {
-      width: 65%;
+      width: 70%;
       border-radius: 50%;
       margin-bottom: 18px;
     }
 
     .sidebar h1 {
       margin: 0;
-      font-size: 1.4em;
+      font-size: 1.3em;
       color: #004f3d;
     }
 
@@ -73,42 +76,18 @@
 
     /* 右侧内容区 */
     .content {
-      margin-left: 26%;
-      padding: 50px 8%;
+      margin-left: 25%;
+      padding: 50px 6%;
       box-sizing: border-box;
       flex: 1;
+      max-width: 900px;
     }
 
     /* === About Section === */
-    .about {
-      margin-bottom: 40px;
-    }
-
     .about p {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: justify;
-      line-height: 1.8;
-    }
-
-    /* === Research Section === */
-    .research-item {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-      padding: 25px;
-      margin: 25px auto;
       max-width: 750px;
-    }
-
-    .research-item img,
-    .research-item video {
-      display: block;
-      width: 100%;
-      max-width: 450px;
-      height: auto;
-      border-radius: 8px;
-      margin: 15px auto 0;
+      text-align: justify;
+      margin: 0;
     }
 
     /* === Publications Section === */
@@ -116,17 +95,17 @@
       display: flex;
       flex-direction: column;
       gap: 25px;
-      align-items: center;
+      align-items: flex-start;
     }
 
     .pub-item {
       background-color: #fff;
-      border-radius: 12px;
+      border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      padding: 20px;
-      line-height: 1.7;
-      max-width: 750px;
+      padding: 15px 20px;
+      line-height: 1.6;
       width: 100%;
+      max-width: 750px;
     }
 
     .pub-item strong {
@@ -146,13 +125,35 @@
 
     .pub-links a {
       color: #007f5f;
-      text-decoration: none;
-      transition: color 0.2s;
     }
 
     .pub-links a:hover {
       color: #004f3d;
       text-decoration: underline;
+    }
+
+    /* === Research Section === */
+    .research-item {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      padding: 15px 20px;
+      margin: 25px 0;
+      width: 100%;
+      max-width: 750px;
+    }
+
+    .research-item h3 {
+      margin-top: 0;
+    }
+
+    .research-item img {
+      display: block;
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+      border-radius: 8px;
+      margin: 10px 0 0;
     }
 
     /* 页脚 */
@@ -165,33 +166,37 @@
       text-align: center;
     }
 
-    /* === 响应式 === */
-    @media (max-width: 900px) {
+    /* === 响应式布局 === */
+    @media (max-width: 950px) {
+      .container {
+        flex-direction: column;
+        max-width: 100%;
+      }
+
       .sidebar {
         position: relative;
         width: 100%;
-        max-width: none;
         height: auto;
         box-shadow: none;
         padding: 25px;
       }
 
       .sidebar img {
-        width: 45%;
+        width: 40%;
+        margin-bottom: 10px;
       }
 
       .content {
         margin-left: 0;
-        padding: 30px 5%;
+        padding: 30px 8%;
+        max-width: 100%;
       }
 
       h2 {
-        width: 100%;
+        max-width: 100%;
       }
 
-      .about p,
-      .pub-item,
-      .research-item {
+      .pub-item, .research-item, .about p {
         max-width: 100%;
       }
     }
