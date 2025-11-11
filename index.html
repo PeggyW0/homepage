@@ -1,276 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peggy Wang</title>
-  <link rel="icon" href="img/favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peggy Wang | Personal Website</title>
   <style>
     /* === 全局设置 === */
     body {
-      margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
-      background-color: #f5f7f6;
+      background-color: #f8f9fb;
       color: #333;
-      line-height: 1.75;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center; /* 页面左右留白 */
     }
 
-    a {
-      color: #007f5f;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    h2 {
-      border-bottom: 2px solid #007f5f;
-      padding-bottom: 6px;
-      margin-top: 50px;
-      margin-bottom: 20px;
-      width: 100%;
-      max-width: 750px;
-    }
-
-    /* === 页面布局 === */
     .container {
       display: flex;
-      min-height: 100vh;
-      max-width: 1200px;
-      margin: 0 auto;
-      background-color: #f5f7f6;
+      max-width: 1200px; /* 限制页面宽度 */
+      width: 90%;
+      background-color: transparent;
+      gap: 30px; /* 左栏和右侧内容间距 */
     }
 
-    /* 左侧信息栏 */
+    /* === 左侧栏 === */
     .sidebar {
-      width: 25%;
-      max-width: 260px;
-      background-color: #e8f5e9;
-      padding: 50px 25px;
-      box-sizing: border-box;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      overflow-y: auto;
-      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+      width: 260px;
+      background-color: #ffffff;
+      padding: 25px 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
       text-align: center;
+      flex-shrink: 0;
     }
 
     .sidebar img {
-      width: 70%;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      margin-bottom: 18px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 15px auto;
     }
 
-    .sidebar h1 {
-      margin: 0;
-      font-size: 1.3em;
-      color: #004f3d;
+    .sidebar h2 {
+      font-size: 22px;
+      margin: 10px 0 5px;
     }
 
     .sidebar p {
-      margin-top: 10px;
-      font-size: 0.9em;
-    }
-
-    /* 右侧内容区 */
-    .content {
-      margin-left: 25%;
-      padding: 50px 6%;
-      box-sizing: border-box;
-      flex: 1;
-      max-width: 900px;
-    }
-
-    /* === About Section === */
-    .about p {
-      max-width: 750px;
-      text-align: justify;
-      margin: 0;
-    }
-
-    /* === Publications Section === */
-    .pub-section {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      align-items: flex-start;
-    }
-
-    .pub-item {
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      padding: 15px 20px;
-      line-height: 1.6;
-      width: 100%;
-      max-width: 750px;
-    }
-
-    .pub-item strong {
-      font-size: 1.05em;
-      color: #222;
-    }
-
-    .pub-item em {
-      color: #555;
-      font-style: italic;
-    }
-
-    .pub-links {
-      font-size: 0.9em;
+      font-size: 14px;
+      margin: 3px 0;
       color: #666;
     }
 
-    .pub-links a {
-      color: #007f5f;
+    /* === 主内容区 === */
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
     }
 
-    .pub-links a:hover {
-      color: #004f3d;
-      text-decoration: underline;
+    section {
+      margin-bottom: 30px;
     }
 
-    /* === Research Section === */
-    .research-item {
+    section h2 {
+      font-size: 20px;
+      border-bottom: 2px solid #333;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      display: inline-block;
+      min-width: 180px;
+    }
+
+    section .section-line {
+      height: 2px;
+      background-color: #333;
+      width: 180px;
+      margin-bottom: 20px;
+    }
+
+    /* === About me === */
+    .about p {
+      background-color: transparent;
+      margin: 0 auto;
+      line-height: 1.7;
+      text-align: justify;
+      width: 90%;
+    }
+
+    /* === 统一研究和论文框样式 === */
+    .research-item,
+    .publication-item {
       background-color: #fff;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       padding: 15px 20px;
-      margin: 25px 0;
-      width: 100%;
-      max-width: 750px;
-    }
-
-    .research-item h3 {
-      margin-top: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      width: 90%;
+      margin: 0 auto;
     }
 
     .research-item img {
-      display: block;
       width: 100%;
-      max-width: 450px;
-      height: auto;
-      border-radius: 8px;
-      margin: 10px 0 0;
+      border-radius: 10px;
+      margin-top: 10px;
     }
 
-    /* 页脚 */
-    footer {
-      margin-top: 50px;
-      padding-top: 10px;
-      border-top: 1px solid #ccc;
-      font-size: 0.9em;
-      color: #777;
-      text-align: center;
+    .publication-item p {
+      margin: 5px 0;
+      line-height: 1.5;
     }
 
-    /* === 响应式布局 === */
-    @media (max-width: 950px) {
+    .publication-item small a {
+      color: #555;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    .publication-item small a:hover {
+      text-decoration: underline;
+    }
+
+    /* === 响应式 === */
+    @media (max-width: 900px) {
+      body {
+        justify-content: center;
+      }
+
       .container {
         flex-direction: column;
-        max-width: 100%;
+        align-items: center;
+        gap: 15px;
+        width: 95%;
       }
 
       .sidebar {
-        position: relative;
         width: 100%;
-        height: auto;
+        border-radius: 0;
         box-shadow: none;
-        padding: 25px;
+        padding: 15px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
 
       .sidebar img {
-        width: 40%;
-        margin-bottom: 10px;
+        width: 100px;
+        height: 100px;
       }
 
       .content {
-        margin-left: 0;
-        padding: 30px 8%;
-        max-width: 100%;
+        width: 100%;
+        padding: 0 5%;
       }
 
-      h2 {
-        max-width: 100%;
-      }
-
-      .pub-item, .research-item, .about p {
-        max-width: 100%;
+      section h2,
+      section .section-line,
+      .research-item,
+      .publication-item,
+      .about p {
+        width: 100%;
       }
     }
   </style>
 </head>
-
 <body>
   <div class="container">
-
-    <!-- 左侧信息栏 -->
-    <div class="sidebar">
-      <img src="img/peggy-hk.jpg" alt="Peiqi WANG">
-      <h1>Peiqi WANG</h1>
-      <p>Master’s Student<br>
-        <strong>The Chinese University of Hong Kong, Shenzhen</strong><br>
-        Research in <strong>Modular Self-Reconfiguring Robots</strong><br>
-        <a href="https://freeformrobotics.org/" target="_blank">Freeform Robotics</a><br><br>
-      </p>
-      <p>Email: <a href="mailto:wangpeiqi00@gmail.com">wangpeiqi00@gmail.com</a></p>
-    </div>
+    <!-- 左侧栏 -->
+    <aside class="sidebar">
+      <img src="img/peggy-hk.jpg" alt="Peggy's Photo" />
+      <h2>Peggy Wang</h2>
+      <p>Mechanical Design Intern</p>
+      <p>AA University, MPhil</p>
+      <p>Modular Self-Reconfiguring Robotics</p>
+    </aside>
 
     <!-- 右侧内容 -->
-    <div class="content">
-
-      <!-- About -->
-      <section id="about" class="about">
+    <main class="content">
+      <!-- About me -->
+      <section class="about">
         <h2>About Me</h2>
+        <div class="section-line"></div>
         <p>
-          I am currently interning in Department MakerWorld at Bumbu Lab as a <strong>Mechanical Design Intern</strong>. I am pursuing an MPhil degree in <strong>Computer and Information Engineering</strong> at The Chinese University of Hong Kong (Shenzhen), China.
-          During my master’s studies, I conducted research on modular self-reconfiguring robots in the 
-          <a href="https://freeformrobotics.org/">Freeform Robotics</a> under the supervision of 
-          <a href="https://www.freeformrobotics.org/tllam/">Prof. Tin Lun LAM</a>. 
-          I will obtain my master’s degree on November 15, 2025.<br><br>
-          I received my bachelor’s degree in <strong>Mechanical Design, Manufacturing, and Automation</strong> from Harbin Institute of Technology (Shenzhen), China, where I completed my undergraduate thesis under the supervision of 
-          <a href="https://homepage.hit.edu.cn/renweihong">Prof. Ren Weihong</a>, focusing on multi-object tracking.<br><br>
-          I am currently seeking PhD positions in mechatronics and robotics.
+          I am currently pursuing my MPhil in Computer and Information Engineering at <b>AA University</b>, and conducting research in modular self-reconfiguring robotics at <b>BB Lab</b>, under the supervision of <b>CC</b>. 
+          I will receive my master’s degree on <b>Nov 15, 2025</b>.  
+          Previously, I obtained my bachelor’s degree in <b>Mechanical Design, Manufacturing and Automation</b> from <b>BB University</b>, where my thesis research on multi-target tracking was advised by <b>DD</b>.
         </p>
       </section>
 
-      <!-- Publications -->
-      <section id="publications">
-        <h2>Publications</h2>
-        <div class="pub-section">
-          <div class="pub-item">
-            <p><strong>Enhancing Connection Strength in Freeform Modular Reconfigurable Robots Through Holey Sphere and Gripper Mechanisms</strong><br>
-              <em><b>Peiqi Wang</b>, Guanqi Liang, Da Zhao, Tin Lun Lam</em><br>
-              <em>International Conference on Robotics and Automation (ICRA), 2025</em><br>
-              <span class="pub-links">
-                [<a href="https://doi.org/10.1109/ICRA55743.2025.11128097" target="_blank">cite</a>]
-                [<a href="pdf/ICRA2025_SnailBOT_Gripper.pdf" target="_blank">pdf</a>]
-              </span>
-            </p>
-          </div>
-        </div>
-      </section>
-
       <!-- Research -->
-      <section id="research">
+      <section class="research">
         <h2>Research</h2>
+        <div class="section-line"></div>
+
         <div class="research-item">
           <h3>SnailBot</h3>
-          <p>SnailBot is a bionic snail-inspired robot.
-            This version of SnailBot adopts an adaptive spherical gripper structure to enhance inter-module connections
-            and employs a rigid magnetic track as the locomotion mechanism, which also provides a fundamental guarantee
-            for reliable connections between SnailBot modules.</p>
-          <img src="img/snailbot.png" alt="SnailBot">
+          <p>
+            SnailBot is a bionic snail-inspired robot.  
+            This version adopts an adaptive spherical gripper for enhanced inter-module connection and employs a rigid magnetic track as a locomotion mechanism, providing reliable coupling between modules.
+          </p>
+          <img src="img/snailbot.png" alt="SnailBot" />
+          <img src="img/Snailbot_gripper.png" alt="Adaptive gripper" />
+          <img src="img/Snailbot_boom.png" alt="SnailBot hardware" />
         </div>
       </section>
 
-      <!-- Footer -->
-      <footer>
-        © 2025 Peiqi Wang | Last updated: November 2025
-      </footer>
-    </div>
+      <!-- Publications -->
+      <section class="publications">
+        <h2>Publications</h2>
+        <div class="section-line"></div>
+
+        <div class="publication-item">
+          <p><b>Broadband and Parallel Multiple-Order Optical Spatial Differentiation Enabled by Bessel Vortex Modulated Metalens</b></p>
+          <p>Journal of Lightwave Technology, 2024</p>
+          <small>
+            <a href="https://doi.org/xxxx" target="_blank">[cite]</a>
+            <a href="library/BVML.pdf" target="_blank">[pdf]</a>
+          </small>
+        </div>
+      </section>
+    </main>
   </div>
 </body>
 </html>
