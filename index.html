@@ -8,20 +8,21 @@
     /* === 全局设置 === */
     body {
       font-family: "Helvetica Neue", Arial, sans-serif;
-      background-color: #f8f9fb;
+      background-color: #f5f8f5;
       color: #333;
       margin: 0;
       padding: 0;
       display: flex;
-      justify-content: center; /* 页面左右留白 */
+      justify-content: center;
     }
 
     .container {
       display: flex;
-      max-width: 1200px; /* 限制页面宽度 */
+      max-width: 1200px;
       width: 90%;
       background-color: transparent;
-      gap: 30px; /* 左栏和右侧内容间距 */
+      gap: 40px; /* 左栏和右侧内容距离 */
+      padding: 40px 0;
     }
 
     /* === 左侧栏 === */
@@ -29,10 +30,11 @@
       width: 260px;
       background-color: #ffffff;
       padding: 25px 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgba(0, 100, 0, 0.15);
       border-radius: 12px;
       text-align: center;
       flex-shrink: 0;
+      border-top: 5px solid #3ca861; /* 保留绿色主题 */
     }
 
     .sidebar img {
@@ -47,6 +49,7 @@
     .sidebar h2 {
       font-size: 22px;
       margin: 10px 0 5px;
+      color: #2f7f4f;
     }
 
     .sidebar p {
@@ -69,18 +72,11 @@
 
     section h2 {
       font-size: 20px;
-      border-bottom: 2px solid #333;
+      border-bottom: 2px solid #3ca861; /* 保留绿色横线 */
       padding-bottom: 5px;
       margin-bottom: 15px;
       display: inline-block;
-      min-width: 180px;
-    }
-
-    section .section-line {
-      height: 2px;
-      background-color: #333;
-      width: 180px;
-      margin-bottom: 20px;
+      color: #2f7f4f;
     }
 
     /* === About me === */
@@ -92,13 +88,13 @@
       width: 90%;
     }
 
-    /* === 统一研究和论文框样式 === */
+    /* === 研究和论文统一白框样式 === */
     .research-item,
     .publication-item {
-      background-color: #fff;
+      background-color: #ffffff;
       border-radius: 10px;
       padding: 15px 20px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 6px rgba(0, 128, 0, 0.08);
       width: 90%;
       margin: 0 auto;
     }
@@ -115,16 +111,17 @@
     }
 
     .publication-item small a {
-      color: #555;
+      color: #2f7f4f;
       text-decoration: none;
       margin-right: 10px;
+      font-size: 13px;
     }
 
     .publication-item small a:hover {
       text-decoration: underline;
     }
 
-    /* === 响应式 === */
+    /* === 响应式布局 === */
     @media (max-width: 900px) {
       body {
         justify-content: center;
@@ -133,15 +130,19 @@
       .container {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        gap: 20px;
         width: 95%;
+        padding: 0;
       }
 
+      /* 左侧栏变成顶部栏 */
       .sidebar {
         width: 100%;
         border-radius: 0;
         box-shadow: none;
-        padding: 15px 0;
+        border-top: none;
+        border-bottom: 4px solid #3ca861; /* 顶栏下方绿色条 */
+        padding: 20px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -155,11 +156,10 @@
 
       .content {
         width: 100%;
-        padding: 0 5%;
+        padding: 0 6%;
       }
 
       section h2,
-      section .section-line,
       .research-item,
       .publication-item,
       .about p {
@@ -168,62 +168,67 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <!-- 左侧栏 -->
     <aside class="sidebar">
       <img src="img/peggy-hk.jpg" alt="Peggy's Photo" />
       <h2>Peggy Wang</h2>
-      <p>Mechanical Design Intern</p>
-      <p>AA University, MPhil</p>
-      <p>Modular Self-Reconfiguring Robotics</p>
+      <p>Master’s Student<br>
+        <strong>The Chinese University of Hong Kong, Shenzhen</strong><br>
+        Research in <strong>Modular Self-Reconfiguring Robots</strong><br>
+        <a href="https://freeformrobotics.org/" target="_blank">Freeform Robotics</a><br><br>
+      </p>
+      <p>Email: <a href="mailto:wangpeiqi00@gmail.com">wangpeiqi00@gmail.com</a></p>
     </aside>
 
     <!-- 右侧内容 -->
     <main class="content">
-      <!-- About me -->
+      <!-- About Me -->
       <section class="about">
         <h2>About Me</h2>
-        <div class="section-line"></div>
         <p>
-          I am currently pursuing my MPhil in Computer and Information Engineering at <b>AA University</b>, and conducting research in modular self-reconfiguring robotics at <b>BB Lab</b>, under the supervision of <b>CC</b>. 
-          I will receive my master’s degree on <b>Nov 15, 2025</b>.  
-          Previously, I obtained my bachelor’s degree in <b>Mechanical Design, Manufacturing and Automation</b> from <b>BB University</b>, where my thesis research on multi-target tracking was advised by <b>DD</b>.
+          I am currently interning in Department MakerWorld at Bumbu Lab as a <strong>Mechanical Design Intern</strong>. I am pursuing an MPhil degree in <strong>Computer and Information Engineering</strong> at The Chinese University of Hong Kong (Shenzhen), China.
+          During my master’s studies, I conducted research on modular self-reconfiguring robots in the 
+          <a href="https://freeformrobotics.org/">Freeform Robotics</a> under the supervision of 
+          <a href="https://www.freeformrobotics.org/tllam/">Prof. Tin Lun LAM</a>. 
+          I will obtain my master’s degree on November 15, 2025.<br><br>
+          I received my bachelor’s degree in <strong>Mechanical Design, Manufacturing, and Automation</strong> from Harbin Institute of Technology (Shenzhen), China, where I completed my undergraduate thesis under the supervision of 
+          <a href="https://homepage.hit.edu.cn/renweihong">Prof. Ren Weihong</a>, focusing on multi-object tracking.<br><br>
+          I am currently seeking PhD positions in mechatronics and robotics.
         </p>
       </section>
 
+       <!-- Publications -->
+      <section class="publications">
+        <h2>Publications</h2>
+        <div class="publication-item">
+          <p><strong>Enhancing Connection Strength in Freeform Modular Reconfigurable Robots Through Holey Sphere and Gripper Mechanisms</strong><br>
+              <em><b>Peiqi Wang</b>, Guanqi Liang, Da Zhao, Tin Lun Lam</em><br>
+              <em>International Conference on Robotics and Automation (ICRA), 2025</em><br>
+              <span class="pub-links">
+                [<a href="https://doi.org/10.1109/ICRA55743.2025.11128097" target="_blank">cite</a>]
+                [<a href="pdf/ICRA2025_SnailBOT_Gripper.pdf" target="_blank">pdf</a>]
+              </span>
+            </p>
+        </div>
+      </section>
+      
       <!-- Research -->
       <section class="research">
         <h2>Research</h2>
-        <div class="section-line"></div>
-
         <div class="research-item">
           <h3>SnailBot</h3>
-          <p>
-            SnailBot is a bionic snail-inspired robot.  
-            This version adopts an adaptive spherical gripper for enhanced inter-module connection and employs a rigid magnetic track as a locomotion mechanism, providing reliable coupling between modules.
-          </p>
-          <img src="img/snailbot.png" alt="SnailBot" />
-          <img src="img/Snailbot_gripper.png" alt="Adaptive gripper" />
-          <img src="img/Snailbot_boom.png" alt="SnailBot hardware" />
+          <p>SnailBot is a bionic snail-inspired robot.
+            This version of SnailBot adopts an adaptive spherical gripper structure to enhance inter-module connections
+            and employs a rigid magnetic track as the locomotion mechanism, which also provides a fundamental guarantee
+            for reliable connections between SnailBot modules.</p>
+          <img src="img/snailbot.png" alt="SnailBot">
         </div>
       </section>
 
-      <!-- Publications -->
-      <section class="publications">
-        <h2>Publications</h2>
-        <div class="section-line"></div>
-
-        <div class="publication-item">
-          <p><b>Broadband and Parallel Multiple-Order Optical Spatial Differentiation Enabled by Bessel Vortex Modulated Metalens</b></p>
-          <p>Journal of Lightwave Technology, 2024</p>
-          <small>
-            <a href="https://doi.org/xxxx" target="_blank">[cite]</a>
-            <a href="library/BVML.pdf" target="_blank">[pdf]</a>
-          </small>
-        </div>
-      </section>
-    </main>
+         </main>
   </div>
 </body>
 </html>
