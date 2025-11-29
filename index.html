@@ -197,10 +197,51 @@
         width: 100%;
       }
     }
+
+    /* === Top Navigation Bar === */
+      .navbar {
+        width: 100%;
+        background-color: #2F4F4F;  /* 深绿灰色，可换成你想要的主题色 #879686 */
+        padding: 12px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;  /* 保证在最上层 */
+        display: flex;
+        justify-content: center;  /* 居中导航内容 */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      }
+      
+      /* 导航栏内部链接样式 */
+      .navbar a {
+        margin: 0 18px;
+        color: white;
+        font-size: 18px;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      
+      .navbar a:hover {
+        text-decoration: underline;
+      }
+      
+      /* 让正文内容不要被固定导航栏挡住 */
+      body {
+        padding-top: 60px;  /* 导航栏高度 + 一点间距 */
+      }
   </style>
 </head>
 
 <body>
+
+      <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-left">
+        <a href="index.html">Homepage</a>
+        <a href="cv.html">CV</a>
+      </div>
+    </nav>
+  
   <div class="container">
 
     <!-- 左侧栏 -->
