@@ -8,14 +8,21 @@
     /* === 全局设置 === */
     body {
       font-family: "Helvetica Neue", Arial, sans-serif;
-      background-color: #f5f8f5;
+      background-color: #f0f2f0;
       color: #333;
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
     }
-
+    /* 主题色系统 */
+    :root {
+      --primary-dark: #5f6a63;        /* 深灰绿，用作标题、链接 */
+      --primary: #879686;            /* 主色 */
+      --primary-light: #a7b2ac;      /* 用于线条与细节 */
+      --sidebar-bg: #dfe4e1;         /* 左侧栏浅灰绿 */
+      --card-bg: #ffffff;            /* 内容卡片白底 */
+    }
     .container {
       display: flex;
       max-width: 1200px;
@@ -28,12 +35,12 @@
     /* === 左侧栏（大屏） === */
     .sidebar {
       width: 260px;
-      background-color: #e8f5e9;
+      background-color: var(--sidebar-bg);
       padding: 25px 20px;
       box-sizing: border-box;
       position: sticky;
       top: 0;
-      height: calc(100vh - 80px); /* 原本是100vh，现在更合理 */
+      height: 100vh; 
       display: flex;
       flex-direction: column;
       border-radius: 12px;
@@ -55,13 +62,13 @@
     .sidebar h2 {
       font-size: 22px;
       margin: 10px 0 5px;
-      color: #2f7f4f;
+      color: var(--primary-dark);
     }
 
     .sidebar p {
       font-size: 14px;
       margin: 3px 0;
-      color: #666;
+      color: #555;
     }
 
     /* === 主内容区 === */
@@ -74,11 +81,11 @@
 
     section h2 {
       font-size: 20px;
-      border-bottom: 2px solid #3ca861;
+      border-bottom: 2px solid var(--primary);
       padding-bottom: 5px;
       margin-bottom: 15px;
       display: inline-block;
-      color: #2f7f4f;
+      color: var(--primary-dark);
     }
 
     .about p {
@@ -87,31 +94,37 @@
       line-height: 1.7;
       text-align: justify;
       width: 90%;
+      color: #444;
     }
-
+    
+    /* === research === */
     .research-item,
-    .publication-item {
-      background-color: #ffffff;
+    .project-item {
+      background-color: var(--card-bg);
       border-radius: 10px;
       padding: 15px 20px;
       box-shadow: 0 2px 6px rgba(0, 128, 0, 0.08);
       width: 90%;
       margin: 0 auto;
     }
-
+    
+    .research-item h3 {
+      color: var(--primary-dark);
+    }
+    
     .research-item img {
-      width: 100%;
+      width: 30%;
       border-radius: 10px;
       margin-top: 10px;
     }
-
+    /* === Publication === */
     .publication-item p {
       margin: 5px 0;
       line-height: 1.5;
     }
 
     .publication-item small a {
-      color: #2f7f4f;
+      color: var(--primary-dark);
       text-decoration: none;
       margin-right: 10px;
       font-size: 13px;
@@ -119,6 +132,19 @@
 
     .publication-item small a:hover {
       text-decoration: underline;
+    }
+
+    /* === Projects === */
+  
+    .project-item h3 {
+      margin-top: 0;
+      color: var(--primary-dark);
+    }
+    
+    .project-item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
     }
 
     /* === 响应式布局：小屏时让 Sidebar 变成顶部栏 === */
@@ -144,7 +170,7 @@
         padding: 25px 0;
         border-radius: 0;
         box-shadow: none;
-        border-bottom: 4px solid #3ca861;
+        border-bottom: 4px solid var(--primary);
 
         display: flex;
         flex-direction: column;
@@ -166,6 +192,7 @@
       section h2,
       .research-item,
       .publication-item,
+      .project-item,
       .about p {
         width: 100%;
       }
@@ -230,6 +257,31 @@
           <img src="img/snailbot.png" alt="SnailBot">
         </div>
       </section>
+
+      <!-- Projects -->
+      <section class="projects">
+        <h2>Projects</h2>
+      
+        <div class="project-item">
+          <h3>Adaptive Spherical Gripper</h3>
+          <p>
+            A gripper mechanism capable of freeform connections on spherical surfaces.
+            Designed for modular self-reconfigurable robots to enable robust and flexible connectivity.
+          </p>
+          <img src="img/gripper.jpg" alt="Adaptive Spherical Gripper">
+        </div>
+      
+        <div class="project-item">
+          <h3>SnailBot Magnetic Track Locomotion</h3>
+          <p>
+            Development of a rigid magnetic track driving system to enhance locomotion
+            stability and connection reliability between robot modules.
+          </p>
+          <img src="img/magnetic_track.jpg" alt="Magnetic Track">
+        </div>
+      
+      </section>
+
     </main>
   </div>
 </body>
