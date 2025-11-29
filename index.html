@@ -21,11 +21,11 @@
       max-width: 1200px;
       width: 90%;
       background-color: transparent;
-      gap: 40px; /* 左栏和右侧内容距离 */
+      gap: 40px;
       padding: 40px 0;
     }
 
-    /* === 左侧栏 === */
+    /* === 左侧栏（大屏） === */
     .sidebar {
       width: 260px;
       background-color: #e8f5e9;
@@ -33,7 +33,7 @@
       box-sizing: border-box;
       position: sticky;
       top: 0;
-      height: 100vh;
+      height: calc(100vh - 80px); /* 原本是100vh，现在更合理 */
       display: flex;
       flex-direction: column;
       border-radius: 12px;
@@ -72,20 +72,15 @@
       gap: 40px;
     }
 
-    section {
-      margin-bottom: 30px;
-    }
-
     section h2 {
       font-size: 20px;
-      border-bottom: 2px solid #3ca861; /* 保留绿色横线 */
+      border-bottom: 2px solid #3ca861;
       padding-bottom: 5px;
       margin-bottom: 15px;
       display: inline-block;
       color: #2f7f4f;
     }
 
-    /* === About me === */
     .about p {
       background-color: transparent;
       margin: 0 auto;
@@ -94,7 +89,6 @@
       width: 90%;
     }
 
-    /* === 研究和论文统一白框样式 === */
     .research-item,
     .publication-item {
       background-color: #ffffff;
@@ -127,7 +121,7 @@
       text-decoration: underline;
     }
 
-    /* === 响应式布局 === */
+    /* === 响应式布局：小屏时让 Sidebar 变成顶部栏 === */
     @media (max-width: 900px) {
       body {
         justify-content: center;
@@ -141,14 +135,17 @@
         padding: 0;
       }
 
-      /* 左侧栏变成顶部栏 */
+      /* 顶部栏样式 */
       .sidebar {
+        position: relative;
+        top: 0;
         width: 100%;
+        height: auto;              /* ⭐ 关键：不再占满屏幕 */
+        padding: 25px 0;
         border-radius: 0;
         box-shadow: none;
-        border-top: none;
-        border-bottom: 4px solid #3ca861; /* 顶栏下方绿色条 */
-        padding: 20px 0;
+        border-bottom: 4px solid #3ca861;
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -158,6 +155,7 @@
       .sidebar img {
         width: 100px;
         height: 100px;
+        margin-bottom: 10px;
       }
 
       .content {
@@ -177,25 +175,26 @@
 
 <body>
   <div class="container">
+
     <!-- 左侧栏 -->
     <aside class="sidebar">
       <img src="img/peggy-hk.jpg" alt="Peggy's Photo" />
       <h2>Peggy Wang</h2>
-      <p>Master’s Student<br>
+      <p>
+        Master’s Student<br>
         <strong>The Chinese University of Hong Kong, Shenzhen</strong><br>
         Research in <strong>Modular Self-Reconfiguring Robots</strong><br>
-        <a href="https://freeformrobotics.org/" target="_blank">Freeform Robotics</a><br><br>
+        <a href="https://freeformrobotics.org/" target="_blank">Freeform Robotics</a>
       </p>
       <p>Email: <a href="mailto:wangpeiqi00@gmail.com">wangpeiqi00@gmail.com</a></p>
     </aside>
 
     <!-- 右侧内容 -->
     <main class="content">
-      <!-- About Me -->
       <section class="about">
         <h2>About Me</h2>
         <p>
-          I am currently interning in Department MakerWorld at Bumbu Lab as a <strong>Mechanical Design Intern</strong>. I am pursuing an MPhil degree in <strong>Computer and Information Engineering</strong> at The Chinese University of Hong Kong (Shenzhen), China.
+          I am currently interning in Department MakerWorld at Bumbu Lab as a <strong>Mechanical Design Intern</strong>. I received my MPhil degree in <strong>Computer and Information Engineering</strong> at The Chinese University of Hong Kong (Shenzhen), China.
           During my master’s studies, I conducted research on modular self-reconfiguring robots in the 
           <a href="https://freeformrobotics.org/">Freeform Robotics</a> under the supervision of 
           <a href="https://www.freeformrobotics.org/tllam/">Prof. Tin Lun LAM</a>. 
@@ -206,35 +205,32 @@
         </p>
       </section>
 
-       <!-- Publications -->
       <section class="publications">
         <h2>Publications</h2>
         <div class="publication-item">
-          <p><strong>Enhancing Connection Strength in Freeform Modular Reconfigurable Robots Through Holey Sphere and Gripper Mechanisms</strong><br>
-              <em><b>Peiqi Wang</b>, Guanqi Liang, Da Zhao, Tin Lun Lam</em><br>
-              <em>International Conference on Robotics and Automation (ICRA), 2025</em><br>
-              <span class="pub-links">
-                [<a href="https://doi.org/10.1109/ICRA55743.2025.11128097" target="_blank">cite</a>]
-                [<a href="pdf/ICRA2025_SnailBOT_Gripper.pdf" target="_blank">pdf</a>]
-              </span>
-            </p>
+          <p>
+            <strong>Enhancing Connection Strength in Freeform Modular Reconfigurable Robots Through Holey Sphere and Gripper Mechanisms</strong><br>
+            <em><b>Peiqi Wang</b>, Guanqi Liang, Da Zhao, Tin Lun Lam</em><br>
+            <em>International Conference on Robotics and Automation (ICRA), 2025</em><br>
+            <span class="pub-links">
+              [<a href="https://doi.org/10.1109/ICRA55743.2025.11128097" target="_blank">cite</a>]
+              [<a href="pdf/ICRA2025_SnailBOT_Gripper.pdf" target="_blank">pdf</a>]
+            </span>
+          </p>
         </div>
       </section>
-      
-      <!-- Research -->
+
       <section class="research">
         <h2>Research</h2>
         <div class="research-item">
           <h3>SnailBot</h3>
-          <p>SnailBot is a bionic snail-inspired robot.
-            This version of SnailBot adopts an adaptive spherical gripper structure to enhance inter-module connections
-            and employs a rigid magnetic track as the locomotion mechanism, which also provides a fundamental guarantee
-            for reliable connections between SnailBot modules.</p>
+          <p>
+            SnailBot is a bionic snail-inspired robot. This version of SnailBot adopts an adaptive spherical gripper structure to enhance inter-module connections and employs a rigid magnetic track as the locomotion mechanism, which also provides a fundamental guarantee for reliable connections between SnailBot modules.
+          </p>
           <img src="img/snailbot.png" alt="SnailBot">
         </div>
       </section>
-
-         </main>
+    </main>
   </div>
 </body>
 </html>
