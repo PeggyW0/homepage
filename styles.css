@@ -35,8 +35,8 @@ body {
   padding: 25px 20px;
   box-sizing: border-box;
   
-  position: fixed;                /* ⭐ 固定左侧栏 */
-  top: 60px;                      /* 和导航栏高度一致 */
+  position: sticky;                
+  top: 80px;                      /* 和导航栏高度一致 */
   left: 0;
   height: calc(100vh - 60px);     /* 剩余可视高度 */
   overflow-y: auto;               /* 内容若超过高度，可滚动 */
